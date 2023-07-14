@@ -4,15 +4,12 @@
   import UserListPage from './lib/User/UserListPage.svelte';
   import UserDetailPage from './lib/User/UserDetailPage.svelte';
   import NotFoundPage from './lib/Error/NotFoundPage.svelte';
-  import { titleApp, validUser } from './constants';
-  import {user} from './stores/auth';
-  import AccessDenied from './lib/Error/AccessDenied.svelte';
+  import { titleApp } from './constants';
 
   $: {
     document.title = titleApp;
   }
 
-  $: isAuthenticated = $user === validUser.email;
 </script>
 
 <Router>

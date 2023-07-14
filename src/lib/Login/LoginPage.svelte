@@ -1,7 +1,6 @@
 
 <script lang="ts">
   import { navigate } from "svelte-routing";
-  import { user } from "../../stores/auth";
   import { onMount } from "svelte";
   import Card from "../components/Card.svelte";
   import { titleApp, validUser } from "../../constants";
@@ -20,20 +19,11 @@
 
   const login = () => {
     if (emailInput === validUser.email && passInput === validUser.password) {
-      localStorage.setItem('user', emailInput);
-      user.set(localStorage.getItem('user'));
-
       navigate('/users', {replace: true});
     } else {
       alert('Email and password not match! Please try again!');
     }
   };
-
-  onMount(() => {
-    if ($user === 'admin@mail.com') {
-      navigate('/users', {replace: true});
-    }
-  });
 
   $: {
     document.title = 'Login - ' + titleApp;

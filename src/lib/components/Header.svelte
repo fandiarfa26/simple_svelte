@@ -1,11 +1,8 @@
 <script lang="ts">
   import { navigate } from "svelte-routing";
-  import { user } from "../../stores/auth";
   import {LogOutIcon} from "svelte-feather-icons";
 
   function logout() {
-    localStorage.clear();
-    user.set(localStorage.getItem('user'));
     navigate('/', {replace: true});
   }
 </script>
