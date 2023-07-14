@@ -1,6 +1,6 @@
 <script lang="ts">
   import {ChevronRightIcon} from 'svelte-feather-icons';
-  import { link } from 'svelte-navigator';
+  import { link } from 'svelte-routing';
 
   export let user;
 

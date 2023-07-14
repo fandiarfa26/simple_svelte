@@ -1,12 +1,10 @@
 
 <script lang="ts">
-  import { useNavigate } from "svelte-navigator";
+  import { navigate } from "svelte-routing";
   import { user } from "../../stores/auth";
   import { onMount } from "svelte";
   import Card from "../components/Card.svelte";
   import { titleApp, validUser } from "../../constants";
-
-  const navigate = useNavigate();
 
   let emailInput:string = '';
   let passInput:string = ''; 

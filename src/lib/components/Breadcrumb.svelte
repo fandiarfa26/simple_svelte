@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { link} from "svelte-navigator";
+  import { link} from "svelte-routing";
   import {HomeIcon, ChevronRightIcon} from "svelte-feather-icons";
   import Card from "./Card.svelte";
 

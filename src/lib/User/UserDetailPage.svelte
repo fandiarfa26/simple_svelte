@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { useParams } from "svelte-navigator";
   import {TwitterIcon, FacebookIcon, LinkedinIcon, GithubIcon} from "svelte-feather-icons";
   import Header from '../components/Header.svelte';
   import Card from '../components/Card.svelte';
@@ -9,15 +8,16 @@
   import Breadcrumb from "../components/Breadcrumb.svelte";
   import ErrorFetch from "../Error/ErrorFetch.svelte";
   import { titleApp } from "../../constants";
-  
-  const params = useParams();
+
+  export let id;
+
   let user;
   let errorMessage;
 
   const fetchUser = async () => {
     errorMessage = undefined;
     try {
-      const res = await fetch (`https://reqres.in/api/users/${$params.id}`);
+      const res = await fetch (`https://reqres.in/api/users/${id}`);
       const data = await res.json();
       user = data.data;
     } catch (error) {

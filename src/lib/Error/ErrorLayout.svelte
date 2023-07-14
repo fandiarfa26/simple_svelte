@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { link } from "svelte-navigator";
+  import { link } from "svelte-routing";
   export let image;
   export let title;
   export let description;
