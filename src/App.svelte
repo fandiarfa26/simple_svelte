@@ -21,19 +21,19 @@
   </Route>
 
   <Route path="/users">
-    {#if isAuthenticated}
+    <!-- {#if isAuthenticated} -->
       <UserListPage/>
-    {:else}
+    <!-- {:else}
       <AccessDenied/>
-    {/if}
+    {/if} -->
   </Route>
   
   <Route path="/users/:id" let:params>
-    {#if isAuthenticated}
+    <!-- {#if isAuthenticated} -->
       <UserDetailPage id={params.id}/>
-    {:else}
+    <!-- {:else}
       <AccessDenied/>
-    {/if}
+    {/if} -->
   </Route>
 
   <Route path="*">
