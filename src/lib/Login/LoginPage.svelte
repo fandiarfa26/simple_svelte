@@ -8,8 +8,17 @@
 
   let emailInput:string = '';
   let passInput:string = ''; 
+  let showPassword:boolean = false;
 
-  function login() {
+  const changePassword = (e) => {
+    passInput = e.target.value;
+  };
+
+  const toggleShowPassword = () => {
+    showPassword = !showPassword;
+  };
+
+  const login = () => {
     if (emailInput === validUser.email && passInput === validUser.password) {
       localStorage.setItem('user', emailInput);
       user.set(localStorage.getItem('user'));
@@ -18,7 +27,7 @@
     } else {
       alert('Email and password not match! Please try again!');
     }
-  }
+  };
 
   onMount(() => {
     if ($user === 'admin@mail.com') {
@@ -30,21 +39,29 @@
     document.title = 'Login - ' + titleApp;
   }
 
+  $: passwordType = showPassword ? 'text' : 'password'
+
 </script>
 
 <main>
   <Card>
     <div class="card-body">
       <h1>Login to Your Account</h1>
-      <form on:submit={login}>
+      <form method="POST" on:submit|preventDefault={login}>
         <label for="email">
           <span>Email</span>
           <input bind:value={emailInput} type="email" name="email" placeholder="example@mail.com" />
         </label>
         <label for="password">
-            <span>Password</span>
-          <input bind:value={passInput} type="password" name="password" placeholder="password" />
-          
+          <span>Password</span>
+          <input 
+            on:input={changePassword}
+            value={passInput}
+            type={passwordType} 
+            name="password" 
+            placeholder="password" 
+          />
+          <a href="#!" on:click={toggleShowPassword}>{showPassword ? 'Hide' : 'Show'} Password</a>
         </label>
         <button type="submit">Login</button>
       </form>
@@ -94,6 +111,17 @@
 
         &:focus {
           background: mix($primary-color, #fff, 5%);
+        }
+      }
+
+      a {
+        align-self: end;
+        text-decoration: none;
+        color: $primary-color;
+        margin: 0.5em 0;
+
+        &:hover {
+          text-decoration: underline;
         }
       }
     }
