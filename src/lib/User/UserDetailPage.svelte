@@ -73,11 +73,11 @@
     flex-direction: column;
     align-items: center;
     gap: 1em;
+    padding: 1em;
 
     @media screen and (min-width: $largeDeviceSize) {
       flex-direction: row;
       align-items: start;
-      padding: 1em;
       gap: 2em;
     }
 
