@@ -21,6 +21,7 @@
     let isValid =
       emailInput === validUser.email && passwordInput === validUser.password;
     if (isValid) {
+      alert("Login successfully!");
       navigate("/users", { replace: true });
     } else {
       alert("Email and password not match! Please try again!");

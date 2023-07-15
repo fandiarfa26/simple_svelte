@@ -14,7 +14,7 @@
 
 <MetaTags
   title={titleApp}
-  description="Simple SPA website created with Svelte."
+  description="Simple SPA website created with Svelte + Vite + Typescript + SCSS."
 />
 
 <Router>

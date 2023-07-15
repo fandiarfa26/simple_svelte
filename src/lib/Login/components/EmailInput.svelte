@@ -11,5 +11,6 @@
     type="email"
     name="email"
     placeholder="example@mail.com"
+    required
   />
 </label>

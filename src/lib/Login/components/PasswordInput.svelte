@@ -2,27 +2,26 @@
   import PasswordToggle from "./PasswordToggle.svelte";
 
   export let onChange;
-  export let value:string;
+  export let value: string;
 
-  let isShow:boolean = false;
+  let isShow: boolean = false;
 
   const onToggleShow = () => {
-    isShow= !isShow;
+    isShow = !isShow;
   };
 
-  $: passwordType = isShow ? 'text' : 'password'
+  $: passwordType = isShow ? "text" : "password";
 </script>
 
 <label for="password">
   <span>Password</span>
-  <input 
+  <input
     on:input={onChange}
-    value={value}
-    type={passwordType} 
-    name="password" 
-    placeholder="password" 
+    {value}
+    type={passwordType}
+    name="password"
+    placeholder="password"
+    required
   />
-  <PasswordToggle 
-    onToggle={onToggleShow} 
-    isShow={isShow} />
+  <PasswordToggle onToggle={onToggleShow} {isShow} />
 </label>

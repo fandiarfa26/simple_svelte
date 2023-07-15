@@ -1,18 +1,11 @@
 <script lang="ts">
-  import { navigate } from "svelte-routing";
-  import {LogOutIcon} from "svelte-feather-icons";
-
-  function logout() {
-    navigate('/', {replace: true});
-  }
+  import { titleApp } from "../../constants";
+  import LogoutButton from "./LogoutButton.svelte";
 </script>
 
 <header>
-  <h1>SimpleApp</h1>
-  <button type="button" on:click={logout}>
-    <LogOutIcon/>
-    <span>Logout</span>
-  </button>
+  <h1>{titleApp}</h1>
+  <LogoutButton />
 </header>
 
 <style lang="scss">
@@ -29,25 +22,6 @@
 
     h1 {
       font-size: x-large;
-    }
-
-    button {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      padding: 0.7em;
-      background-color: $danger-color;
-      color: #fff;
-      font-weight: 700;
-      font-size: medium;
-      border-radius: 0.5em;
-      border: 0;
-      box-shadow: none;
-      cursor: pointer;
-      
-      &:hover {
-        background-color: mix($danger-color, #000, 80%);
-      }
     }
   }
 </style>
