@@ -10,8 +10,8 @@
 <a href={`/users/${user.id}`} class="tile" use:link>
   <img src={user.avatar} alt="Image of ${user.first_name}">
   <div class="expanded">
-    <h4>{fullname}</h4>
-    <p>{user.email}</p>
+    <div class="tile-title">{fullname}</div>
+    <div class="tile-subtitle">{user.email}</div>
   </div>
   <ChevronRightIcon size="1.5x"/>
 </a>
@@ -37,11 +37,12 @@
       border-radius: 50%;
     }
 
-    h4 {
+    .tile-title {
       font-size: large;
+      font-weight: 700;
     }
 
-    p {
+    .tile-subtitle {
       font-size: smaller;
     }
     

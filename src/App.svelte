@@ -1,5 +1,6 @@
 <script lang="ts">
   import {Router, Route} from 'svelte-routing';
+  import {MetaTags} from 'svelte-meta-tags';
   import LoginPage from './lib/Login/LoginPage.svelte';
   import UserListPage from './lib/User/UserListPage.svelte';
   import UserDetailPage from './lib/User/UserDetailPage.svelte';
@@ -11,6 +12,8 @@
   }
 
 </script>
+
+<MetaTags title={titleApp} description="Simple SPA website created with Svelte." />
 
 <Router>
   <Route path="/">

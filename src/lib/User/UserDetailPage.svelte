@@ -39,16 +39,16 @@
     <Card>
       {#if user}
         <div class="profile">
-          <img src={user.avatar} alt={`Avatar of ${user.first_name}`}>
+          <img class="profile-image" src={user.avatar} alt={`Avatar of ${user.first_name}`}>
           <div class="profile-list">
-            <h2>{user.first_name} {user.last_name}</h2>
-            <h4>{user.email}</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, inventore!</p>
+            <div class="profile-name">{user.first_name} {user.last_name}</div>
+            <div class="profile-email">{user.email}</div>
+            <div class="profile-quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, inventore!</div>
             <div class="icons">
-              <a href="#!"><TwitterIcon/></a>
-              <a href="#!"><FacebookIcon/></a>
-              <a href="#!"><LinkedinIcon/></a>
-              <a href="#!"><GithubIcon/></a>
+              <a href="#!" aria-label="twitter"><TwitterIcon/></a>
+              <a href="#!" aria-label="facebook"><FacebookIcon/></a>
+              <a href="#!" aria-label="linkedin"><LinkedinIcon/></a>
+              <a href="#!" aria-label="github"><GithubIcon/></a>
             </div>
           </div>
         </div>
@@ -66,7 +66,7 @@
 <style lang="scss">
   @import "../../styles/variables.scss";
 
-  $img-size: 10em;
+  $img-size: 7em;
 
   .profile {
     display: flex;
@@ -81,7 +81,7 @@
       gap: 2em;
     }
 
-    img {
+    .profile-image {
       width: $img-size;
       height: $img-size;
       border-radius: 50%;
@@ -99,16 +99,18 @@
       }
     }
 
-    h2 {
+    .profile-name {
+      font-weight: 700;
       font-size: x-large;
     }
 
-    h4 {
+    .profile-email {
+      font-weight: 700;
       font-size: medium;
       color: $primary-color;
     }
 
-    p {
+    .profile-quote {
       text-align: center;
       font-style: italic;
 
