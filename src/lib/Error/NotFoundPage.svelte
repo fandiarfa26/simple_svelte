@@ -1,10 +1,10 @@
 <script lang="ts">
   import NotFoundImage from "../../assets/page_not_found.svg";
   import { titleApp } from "../../constants";
-  import ErrorLayout from "./ErrorLayout.svelte";
+  import ErrorLayout from "./components/ErrorPageLayout.svelte";
 
   $: {
-    document.title = '404 - ' + titleApp;
+    document.title = "404 - " + titleApp;
   }
 </script>
 
