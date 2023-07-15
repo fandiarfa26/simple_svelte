@@ -1,10 +1,8 @@
 
 <script lang="ts">
   import { navigate } from "svelte-routing";
-  import { onMount } from "svelte";
   import Card from "../components/Card.svelte";
   import { titleApp, validUser } from "../../constants";
-  import ContainerWrapper from "../components/ContainerWrapper.svelte";
 
   let emailInput:string = '';
   let passInput:string = ''; 
@@ -128,6 +126,10 @@
         color: $primary-color;
         margin: 0.5em 0;
         font-size: smaller;
+
+        @media screen and (min-width: $largeDeviceSize) {
+          font-size: medium;
+        }
 
         &:hover {
           text-decoration: underline;
