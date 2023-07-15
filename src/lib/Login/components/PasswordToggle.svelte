@@ -1,9 +1,9 @@
 <script lang="ts">
   export let onToggle;
-  export let isShow:boolean;
+  export let isShow: boolean;
 </script>
 
-<a href="#!" on:click={onToggle}>{isShow ? 'Hide' : 'Show'} Password</a>
+<a href="#!" on:click={onToggle}>{isShow ? "Hide" : "Show"} Password</a>
 
 <style lang="scss">
   @import "../../../styles/variables.scss";
@@ -13,10 +13,10 @@
     text-decoration: none;
     color: $primary-color;
     margin: 0.5em 0;
-    font-size: smaller;
+    font-size: medium;
 
     @media screen and (min-width: $largeDeviceSize) {
-      font-size: medium;
+      font-size: smaller;
     }
 
     &:hover {
