@@ -38,8 +38,8 @@
   <div class="wrapper">
     <Card>
       <div class="card-body">
-        <h1>Login to Your Account</h1>
         <form method="POST" on:submit|preventDefault={login}>
+          <div class="login-title">Login to Your Account</div>
           <label for="email">
             <span>Email</span>
             <input bind:value={emailInput} type="email" name="email" placeholder="example@mail.com" />
@@ -85,10 +85,11 @@
     }
   }
 
-  h1 {
-    text-align: center;
-    margin-bottom: 1em;
-    font-size: x-large;
+  .login-title {
+    font-weight: 700;
+    @media screen and (min-width: $largeDeviceSize) {
+      font-size: larger;
+    }
   }
 
   .card-body {
@@ -113,7 +114,7 @@
         border-radius: 0.5em;
         border-width: 2px;
         border-color: $secondary-color;
-        font-size:large;
+        font-size:medium;
         border-style: solid;
 
         &:focus {
@@ -126,6 +127,7 @@
         text-decoration: none;
         color: $primary-color;
         margin: 0.5em 0;
+        font-size: smaller;
 
         &:hover {
           text-decoration: underline;
