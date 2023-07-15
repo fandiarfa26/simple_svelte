@@ -10,6 +10,10 @@
     margin: 0 auto;
     padding: 1em 0;
 
+    @media screen and (min-width: $mediumDeviceSize) {
+      width: 60%;
+    }
+
     @media screen and (min-width: $largeDeviceSize) {
       width: 40%;
     }

@@ -43,7 +43,7 @@
     }
 
     .tile-subtitle {
-      font-size: smaller;
+      font-size: small;
     }
     
     .expanded {

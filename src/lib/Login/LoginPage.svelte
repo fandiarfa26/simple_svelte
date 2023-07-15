@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
   import Card from "../components/Card.svelte";
   import { titleApp, validUser } from "../../constants";
+  import ContainerWrapper from "../components/ContainerWrapper.svelte";
 
   let emailInput:string = '';
   let passInput:string = ''; 
@@ -34,29 +35,31 @@
 </script>
 
 <main>
-  <Card>
-    <div class="card-body">
-      <h1>Login to Your Account</h1>
-      <form method="POST" on:submit|preventDefault={login}>
-        <label for="email">
-          <span>Email</span>
-          <input bind:value={emailInput} type="email" name="email" placeholder="example@mail.com" />
-        </label>
-        <label for="password">
-          <span>Password</span>
-          <input 
-            on:input={changePassword}
-            value={passInput}
-            type={passwordType} 
-            name="password" 
-            placeholder="password" 
-          />
-          <a href="#!" on:click={toggleShowPassword}>{showPassword ? 'Hide' : 'Show'} Password</a>
-        </label>
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  </Card>
+  <div class="wrapper">
+    <Card>
+      <div class="card-body">
+        <h1>Login to Your Account</h1>
+        <form method="POST" on:submit|preventDefault={login}>
+          <label for="email">
+            <span>Email</span>
+            <input bind:value={emailInput} type="email" name="email" placeholder="example@mail.com" />
+          </label>
+          <label for="password">
+            <span>Password</span>
+            <input 
+              on:input={changePassword}
+              value={passInput}
+              type={passwordType} 
+              name="password" 
+              placeholder="password" 
+            />
+            <a href="#!" on:click={toggleShowPassword}>{showPassword ? 'Hide' : 'Show'} Password</a>
+          </label>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </Card>
+  </div>
 </main>
 
 <style lang="scss">
@@ -69,9 +72,23 @@
     align-items: center;
   }
 
+  .wrapper {
+    width: 95%;
+    margin: 0 auto;
+
+    @media screen and (min-width: $mediumDeviceSize) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: $largeDeviceSize) {
+      width: 30%;
+    }
+  }
+
   h1 {
     text-align: center;
     margin-bottom: 1em;
+    font-size: x-large;
   }
 
   .card-body {
