@@ -15,17 +15,7 @@
 
 <MetaTags 
   title={titleApp} 
-  description="Simple SPA website created with Svelte." 
-  robotsProps={{
-    noarchive: true,
-    nosnippet: true,
-    maxSnippet: -1,
-    maxImagePreview: 'none',
-    maxVideoPreview: -1,
-    notranslate: true,
-    noimageindex: true,
-    unavailableAfter: '25 Jun 2010 15:00:00 PST'
-  }}
+  description="Simple SPA website created with Svelte."
 />
 
 <Router>
