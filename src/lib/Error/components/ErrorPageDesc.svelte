@@ -2,7 +2,7 @@
   export let text: string;
 </script>
 
-<p>{text}</p>
+<p>{@html text}</p>
 
 <style lang="scss">
   p {

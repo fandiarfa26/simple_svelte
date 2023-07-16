@@ -5,6 +5,7 @@
   import EmailInput from "./EmailInput.svelte";
   import PasswordInput from "./PasswordInput.svelte";
   import LoginButton from "./LoginButton.svelte";
+  import { userAuth } from "../../../stores/auth";
 
   let emailInput: string = "";
   let passwordInput: string = "";
@@ -21,6 +22,8 @@
     let isValid =
       emailInput === validUser.email && passwordInput === validUser.password;
     if (isValid) {
+      localStorage.setItem("auth", emailInput);
+      userAuth.set(localStorage.getItem("auth"));
       alert("Login successfully!");
       navigate("/users", { replace: true });
     } else {

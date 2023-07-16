@@ -5,11 +5,15 @@
   import UserListPage from "./lib/User/UserList/UserListPage.svelte";
   import UserDetailPage from "./lib/User/UserDetail/UserDetailPage.svelte";
   import NotFoundPage from "./lib/Error/NotFoundPage.svelte";
-  import { titleApp } from "./constants";
+  import { titleApp, validUser } from "./constants";
+  import { userAuth } from "./stores/auth";
+  import AccessDeniedPage from "./lib/Error/AccessDeniedPage.svelte";
 
   $: {
     document.title = titleApp;
   }
+
+  $: isAuthenticated = $userAuth === validUser.email;
 </script>
 
 <MetaTags
@@ -23,11 +27,19 @@
   </Route>
 
   <Route path="/users">
-    <UserListPage />
+    {#if isAuthenticated}
+      <UserListPage />
+    {:else}
+      <AccessDeniedPage />
+    {/if}
   </Route>
 
   <Route path="/users/:id" let:params>
-    <UserDetailPage id={params.id} />
+    {#if isAuthenticated}
+      <UserDetailPage id={params.id} />
+    {:else}
+      <AccessDeniedPage />
+    {/if}
   </Route>
 
   <Route path="*">

@@ -1,8 +1,11 @@
 <script>
   import { LogOutIcon } from "svelte-feather-icons";
   import { navigate } from "svelte-routing";
+  import { userAuth } from "../../stores/auth";
 
   const logout = () => {
+    localStorage.clear();
+    userAuth.set(localStorage.getItem("auth"));
     navigate("/", { replace: true });
   };
 </script>

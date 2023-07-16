@@ -1,10 +1,20 @@
 <script lang="ts">
-  import { titleApp } from "../../constants";
+  import { onMount } from "svelte";
+  import { titleApp, validUser } from "../../constants";
   import LoginCard from "./components/LoginCard.svelte";
+  import { userAuth } from "../../stores/auth";
+  import { navigate } from "svelte-routing";
 
   $: {
     document.title = "Login - " + titleApp;
   }
+
+  onMount(() => {
+    let auth = localStorage.getItem("auth");
+    if (auth === validUser.email) {
+      navigate("/users", { replace: true });
+    }
+  });
 </script>
 
 <main>
