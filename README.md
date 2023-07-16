@@ -38,6 +38,8 @@ Develop with:
 
 Public API: [Resreq.in](https://reqres.in/)
 
+Deploy: [Vercel](https://vercel.com/)
+
 ## Demo
 
 The website can be accessed on [this link](https://fandi-simple-svelte.vercel.app/).
