@@ -4,32 +4,46 @@
   import UserTile from "./UserTile.svelte";
   import ErrorFetch from "../../../Error/ErrorFetch.svelte";
   import Loading from "../../../components/Loading.svelte";
+  import Pagination from "./Pagination.svelte";
 
-  let users;
+  let usersResponse;
+  let isLoading: boolean = false;
   let errorMessage: string;
 
-  const fetchUsers = async () => {
+  const fetchUsers = async (page: number) => {
+    isLoading = true;
     errorMessage = undefined;
     try {
-      const res = await fetch(`https://reqres.in/api/users`);
+      const res = await fetch(`https://reqres.in/api/users?page=${page}`);
       const data = await res.json();
-      users = data.data;
+      usersResponse = data;
+      isLoading = false;
     } catch (error) {
       errorMessage = error.message;
+      isLoading = false;
     }
   };
 
-  onMount(() => fetchUsers());
+  const onChangePage = (page: number) => {
+    fetchUsers(page);
+  };
+
+  onMount(() => fetchUsers(1));
 </script>
 
 <Card>
-  {#if users}
-    {#each users as user}
+  {#if isLoading}
+    <Loading />
+  {:else if usersResponse}
+    {#each usersResponse.data as user}
       <UserTile {user} />
     {/each}
+    <Pagination
+      totalPages={usersResponse.total_pages}
+      activePage={usersResponse.page}
+      {onChangePage}
+    />
   {:else if errorMessage}
     <ErrorFetch message={errorMessage} />
-  {:else}
-    <Loading />
   {/if}
 </Card>

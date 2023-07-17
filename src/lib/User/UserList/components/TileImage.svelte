@@ -11,6 +11,7 @@
   img {
     width: $img-size;
     height: $img-size;
+    object-fit: cover;
     border-radius: 50%;
   }
 </style>

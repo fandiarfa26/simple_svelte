@@ -28,7 +28,7 @@
     text-decoration: none;
 
     &:hover {
-      background-color: mix(#fff, #000, 95%);
+      background-color: $secondary-color;
     }
   }
 </style>
