@@ -24,12 +24,5 @@
     &:hover {
       background-color: mix($danger-color, #000, 80%);
     }
-
-    span {
-      display: none;
-      @media screen and (min-width: $mediumDeviceSize) {
-        display: inline;
-      }
-    }
   }
 </style>
