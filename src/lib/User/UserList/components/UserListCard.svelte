@@ -28,7 +28,7 @@
     fetchUsers(page);
   };
 
-  onMount(() => fetchUsers(2));
+  onMount(() => fetchUsers(1));
 </script>
 
 <Card>

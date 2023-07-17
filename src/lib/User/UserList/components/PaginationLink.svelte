@@ -18,7 +18,7 @@
 
   span {
     padding: 0.5em 1em;
-    color: #999;
+    color: #555;
     font-weight: 700;
 
     &.active {
