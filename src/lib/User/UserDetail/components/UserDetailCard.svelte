@@ -14,8 +14,12 @@
     errorMessage = undefined;
     try {
       const res = await fetch(`https://reqres.in/api/users/${id}`);
-      const data = await res.json();
-      user = data.data;
+      if (res.ok) {
+        const data = await res.json();
+        user = data.data;
+      } else {
+        throw new Error("User not found!");
+      }
     } catch (error) {
       errorMessage = error.message;
     }
